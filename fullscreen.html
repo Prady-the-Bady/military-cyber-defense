@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching WarGuard Nexus Defense System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a1219;
+            color: white;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        
+        button {
+            padding: 15px 30px;
+            background-color: #0072bb;
+            color: white;
+            border: none;
+            font-family: 'Consolas', monospace;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border: 1px solid #00acc1;
+        }
+        
+        button:hover {
+            background-color: #005a94;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WarGuard Nexus Defense System</h1>
+    <button id="launchBtn">LAUNCH IN FULLSCREEN</button>
+
+    <script>
+        document.getElementById('launchBtn').addEventListener('click', () => {
+            // Request fullscreen on the document
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+            
+            // Redirect to the main simulation page
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500);
+        });
+    </script>
+</body>
+</html>

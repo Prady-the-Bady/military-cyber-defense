@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarGuard Defense System - Standalone</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #0a1219;
+            color: #e6e6e6;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background-color: #0072bb;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: monospace;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #005a94;
+            transform: scale(1.05);
+        }
+        
+        .loading {
+            margin-top: 30px;
+            font-size: 16px;
+        }
+        
+        .shield {
+            width: 80px;
+            height: 80px;
+            background-color: #0072bb;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            margin-bottom: 30px;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        .shield:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            background-color: #0a1219;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 5px #0072bb; }
+            50% { box-shadow: 0 0 15px #0072bb; }
+        }
+    </style>
+</head>
+<body>
+    <div class="shield"></div>
+    <h1>WarGuard Defense System</h1>
+    <div class="buttons">
+        <button onclick="openInNewTab('index.html')">Launch Simulation</button>
+        <button onclick="openFullscreen('index.html')">Launch Fullscreen</button>
+    </div>
+    <div class="loading">Military-grade cybersecurity simulation ready for deployment.</div>
+
+    <script>
+        function openInNewTab(url) {
+            window.open(url, '_blank');
+        }
+        
+        function openFullscreen(url) {
+            const win = window.open(url, '_blank');
+            win.addEventListener('load', () => {
+                if (win.document.documentElement.requestFullscreen) {
+                    win.document.documentElement.requestFullscreen();
+                } else if (win.document.documentElement.mozRequestFullScreen) {
+                    win.document.documentElement.mozRequestFullScreen();
+                } else if (win.document.documentElement.webkitRequestFullscreen) {
+                    win.document.documentElement.webkitRequestFullscreen();
+                } else if (win.document.documentElement.msRequestFullscreen) {
+                    win.document.documentElement.msRequestFullscreen();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
